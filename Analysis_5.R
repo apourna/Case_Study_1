@@ -1,0 +1,5 @@
+summary(nonOECD$`GDPin$(millions)`)
+summary(OECD$`GDPin$(millions)`)
+summary(lowIncome$`GDPin$(millions)`)
+summary(lowMiddleIncome$`GDPin$(millions)`)
+summary(upperMiddleIncome$`GDPin$(millions)`)

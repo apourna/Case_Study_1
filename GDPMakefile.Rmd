@@ -1,0 +1,126 @@
+---
+title: "GDPMakefile"
+author: "Asha Mohan"
+date: "3/19/2017"
+output: 
+    html_document:
+        keep_md: true
+        toc: true
+        number_sections: true
+---
+This is a case study to analyse the Gross Domestic product data of countries around the world in the year 2012. The data
+is pulled from worldbank.org. The information is scattered in 2 data files, one is the GDP ranking table and another is the FEDSTATS per country data file. The two files are analysed and a subset of the information required for the case study is pulled out and consolidated here. The project is using R for tidying data & analysis. As a first step, installing and loading libraries required for the analysis.
+
+#Basic Setup for R
+
+All the packages needs to be downloaded from the R CRAN repository
+
+```{r setup, include=TRUE}
+chooseCRANmirror(graphics=FALSE, ind=1)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Set the Working Directory
+
+Working directory is set to the main project directory. Please edit it as required when the project is 
+re-used.
+
+```{r set working directory, echo=TRUE}
+setwd("/Users/ASHMOHAN 1/Desktop/Data_Science/SMU_Term1_Doing_Data_science/Project_2_caseStudy/Case_Study_1")
+```
+
+#Install and load the required library for the project
+
+Packages are downloaded to help tidy the data and analysis.
+```{r install packages, echo=TRUE}
+source("packages_for_case_study.R", echo = TRUE, keep.source = TRUE)
+```
+
+#Downloading data
+
+The data is in two seperate files in CSV format. Download both the files into local working directory and check if the download is successful. 
+```{r code=readLines("DownloadData.R")}
+source("DownloadData.R", echo = TRUE, keep.source = TRUE)
+```
+
+#Tidying the GDP and FEDSTATS data
+
+The GDP dataset has the country code, Ranking , and GDP revenue in millions of US$. There are some rows at the beginning of the data set and at the end that has description of the data, we have cleaned them. Our interest is to take the data rows that have country, GDP and Ranking.
+The second dataset has more detail information on each country. Pick the required data and ignore the rest. Finally merged both dataset with country code. 
+```{r code=readLines("Tidy_and_merge_datasets.R")}
+source("Tidy_and_merge_datasets.R", echo = TRUE, keep.source = TRUE)
+```
+
+#Analysis of Merged Data
+
+Several analysis done using the merged data.
+
+##1 - Merge the data based on the country shortcode. How many of the IDs match?
+
+```{r code=readLines("Merged_data_Analysis.R")}
+source("Merged_data_Analysis.R", echo = TRUE, keep.source = TRUE)
+```
+
+189 observations are seen after merging the data based on country shortcode.
+
+##2 Sort the data frame in ascending order by GDP (so United States is last). What is the 13th country in the resulting data frame?
+
+```{r analysis_2}
+source("Analysis_2.R", echo = TRUE, keep.source = TRUE)
+```
+
+
+St. Kitts and Nevis is the 13th country when sorted in ascending order of GDP
+
+However its seen that Grenada and St. Kitts and Nevis have the same GDP but they got arranged per the alphabetical order
+Conclusion to the project. Summarize analysis.
+
+
+##3 : What are the average GDP rankings for the "High income: OECD" and "High income: nonOECD" groups?
+
+```{r analysis_3}
+source("Analysis_3.R", echo = TRUE, keep.source = TRUE)
+```
+
+The average GDP Ranking for the High income OECD group is  32.96.
+
+The average GDP Ranking High income NON OECD group is 91.91.
+
+
+
+##4: Show the distribution of GDP value for all the countries and color plots by income group. Use ggplot2 to create your plot.
+
+```{r analysis_4}
+source("Analysis_4.R", echo = TRUE, keep.source = TRUE)
+```
+
+
+
+
+##5:Provide summary statistics of GDP by income groups.
+
+```{r analysis_5}
+source("Analysis_5.R", echo = TRUE, keep.source = TRUE)
+```
+
+
+
+The lowest GDP value is seen in low Middle income groups.
+
+Highest GDP value seen in High income OECD group and the highest average is also seen in the High income OECD groups
+
+
+##6:Cut the GDP ranking into 5 separate quantile groups. Make a table versus Income.Group. How many countries are Lower middle income but among the 38 nations with highest GDP? 
+
+```{r analysis_6}
+source("Analysis_6.R", echo = TRUE, keep.source = TRUE)
+```
+
+
+13 countries are in lower middle income and in highest 38 nations with highest GDP
+
+
+#Summary
+
+The analysis of Gross Domestic product data of countries around the world shows that the average GDP of high income OECD is much bigger than highest of all the other income group's GDP value.
+USA seems to have the highest GDP and Tuvalu has the lowest GDP. There are only few countries in the low income category.Many of the countries belong to lower middle income and High income OECD category.
