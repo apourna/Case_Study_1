@@ -1,0 +1,55 @@
+---
+title: "GDPMakefile"
+author: "Asha Mohan"
+date: "3/19/2017"
+output: html_document
+---
+This is a case study to analyse the Gross Domestic product data of countries around the world. The data
+is pulled from worldbank.org. The information is scattered in 2 data files, one is the GDP ranking table and another is the FEDSTATS per country data file. The two files are analysed and a subset of the information required for the case study is pulled out and consolidated here. The project is using R for 
+tidying data & analysis. As a first step, installing and loading libraries required for the analysis.
+
+##Basic Setup for R
+
+All the packages needs to be downloaded from the R CRAN repository
+
+```{r setup, include=TRUE}
+chooseCRANmirror(graphics=FALSE, ind=1)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Set the Working Directory
+
+Working directory is set to the main project directory. Please edit it as required when the project is 
+re-used.
+
+```{r set working directory, include=TRUE}
+setwd("/Users/ASHMOHAN 1/Desktop/Data_Science/SMU_Term1_Doing_Data_science/Project_2_caseStudy/Case_Study_1")
+```
+
+##Install and load the required library for the project
+
+Packages are downloaded to help tidy the data and analysis.
+```{r download packages, include=TRUE}
+source("packages_for_case_study.R")
+```
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
