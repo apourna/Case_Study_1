@@ -22,8 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #Set the Working Directory
 
-Working directory is set to the main project directory. Please edit it as required when the project is 
-re-used.
+Working directory is set to the main project directory. Please edit it as required when the project is re-used.
 
 ```{r set working directory, echo=TRUE}
 setwd("/Users/ASHMOHAN 1/Desktop/Data_Science/SMU_Term1_Doing_Data_science/Project_2_caseStudy/Case_Study_1")
